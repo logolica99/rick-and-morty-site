@@ -1,0 +1,61 @@
+.homepage {
+  background-color: #191d29;
+  position: relative;
+
+  color: white;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include breakpoint-down(medium) {
+  }
+
+  &-background {
+    &-top {
+      > img {
+        position: absolute;
+        top: 0px;
+
+        height: 100vh;
+        width: 100%;
+
+        @include breakpoint-down(medium) {
+          left: -100%;
+          width: 220%;
+          height: 100%;
+        }
+        @include breakpoint-down(small) {
+          left: -160%;
+          width: 300%;
+          height: 100%;
+        }
+      }
+    }
+    &-left {
+      > img {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    }
+    &-right {
+      > img {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+    &-bottomleft {
+      > img {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    &-topright {
+      > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}

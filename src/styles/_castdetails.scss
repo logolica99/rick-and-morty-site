@@ -1,0 +1,31 @@
+.castdetails {
+  background-color: #191d29;
+  position: relative;
+
+  color: white;
+  line-height: 50px;
+  &-background {
+    &-top {
+      > img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @include breakpoint-down(medium) {
+          left: -100%;
+          width: 220%;
+        }
+        @include breakpoint-down(small) {
+          left: -160%;
+          width: 300%;
+        }
+      }
+    }
+    &-left {
+      > img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
