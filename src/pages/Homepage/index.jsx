@@ -24,6 +24,7 @@ export default function Homepage() {
       <div className="homepage-background-bottomleft hide-for-mobiles">
         <img src={ellipsebottom} alt="" />
       </div>
+
     
     </div>
   );

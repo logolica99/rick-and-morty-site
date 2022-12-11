@@ -1,0 +1,17 @@
+.header {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 9999;
+  > a {
+    > img {
+      width: 200px;
+      @include breakpoint-down(medium) {
+        width: 150px;
+      }
+    }
+  }
+}
