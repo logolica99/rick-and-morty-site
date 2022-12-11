@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/cast" element={<Cast />} />
-        <Route path="/cast-details" element={<CastDetails />} />
+        <Route path="/cast-details/:id" element={<CastDetails />} />
       </Routes>
       
     </BrowserRouter>
