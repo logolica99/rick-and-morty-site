@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Background from "../../Media asset/Home page/Background  Elements/Background.png";
 import Spiral from "../../Media asset/Home page/Background  Elements/Spiral.png";
@@ -10,8 +11,38 @@ import gun from "../../Media asset/Home page/Hero Elements/Gun.png";
 import pill from "../../Media asset/Home page/Hero Elements/pill.png";
 import portal from "../../Media asset/Home page/Hero Elements/portal.png";
 import playbutton from "../../Media asset/Home page/Hero Elements/playbutton.svg";
+import arrows from "../../Media asset/Home page/arrows.svg";
+import SmallCardSlider from "../../components/SmallCardSlider";
+import LargeCardSlider from "../../components/LargeCardSlider";
+import axios from "axios";
 
 export default function Homepage() {
+  const [castData, setCastData] = useState([]);
+  const [episodeData, setEpisodeData] = useState([]);
+  const [locationData, setLocationData] = useState([]);
+
+  const fetchCastData = () => {
+    axios.get("https://rickandmortyapi.com/api/character/").then((res) => {
+      setCastData(res.data.results);
+    });
+  };
+  const fetchEpisodeData = () => {
+    axios.get("https://rickandmortyapi.com/api/episode").then((res) => {
+      setEpisodeData(res.data.results);
+    });
+  };
+  const fetchLocationData = () => {
+    axios.get("https://rickandmortyapi.com/api/location/").then((res) => {
+      setLocationData(res.data.results);
+    });
+  };
+
+  useEffect(() => {
+    fetchCastData();
+    fetchEpisodeData();
+    fetchLocationData();
+  }, []);
+
   return (
     <div className="homepage">
       <div className="homepage-background-top">
@@ -60,7 +91,25 @@ export default function Homepage() {
           </p>
         </div>
       </div>
-      <div style={{ height: "100vh" }}></div>
+      <div className="homepage-largeslider smallslider-content">
+        <div className="homepage-largeslider-heading">
+          <div className="homepage-largeslider-heading-text">
+            <h4>Meet The Cast</h4>
+            <img src={arrows} alt="" className="hide-for-desktop" />
+          </div>
+          <Link to="/cast">View All</Link>
+        </div>
+        <LargeCardSlider sliderData={castData} />
+      </div>
+      <div className="homepage-smallslider episodeslider smallslider-content">
+        <h4>Episodes</h4>
+        <SmallCardSlider data={episodeData} />
+      </div>
+      <div className="homepage-smallslider smallslider-content">
+        <h4>Locations</h4>
+        <SmallCardSlider data={locationData} />
+      </div>
+      <div style={{ height: "10vh" }}></div>
     </div>
   );
 }

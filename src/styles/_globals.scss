@@ -26,3 +26,33 @@ html {
 .nav-padding {
   padding: 7vh 0px;
 }
+
+// this part can be delted
+body{
+  background-color: black;
+}
+
+.smallslider-content {
+  margin: 0px 80px;
+  @include breakpoint-down(small) {
+    margin: 0px 30px;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 35px;
+  opacity: 1;
+  @include breakpoint-down(small) {
+    font-size: 25px;
+  }
+}
+.slick-prev {
+  z-index: 999;
+}
+.slick-next {
+  right: -2px;
+  @include breakpoint-down(small) {
+    right: -14px;
+  }
+}

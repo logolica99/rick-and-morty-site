@@ -1,0 +1,27 @@
+.smallcard {
+  color: white;
+  position: relative;
+  width: 220px;
+  height: 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  @media (max-width: 800px) {
+    width: 200px;
+    height: 80px;
+  }
+  > img {
+    position: absolute;
+    width: 100%;
+  }
+  > p {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  > h6 {
+    margin-left: 10px;
+    font-size: 15px;
+  }
+}
